@@ -958,7 +958,7 @@ makeTransactionBodyAutoBalance eraInMode systemstart history pparams
    accountForNoChange change@(TxOut _ balance _) rest =
      case txOutValueToLovelace balance of
        Lovelace 0 -> rest
-       _ -> change : rest
+       _ -> rest ++ [change]
 
    balanceCheck :: TxOutValue era -> Either TxBodyErrorAutoBalance ()
    balanceCheck balance
